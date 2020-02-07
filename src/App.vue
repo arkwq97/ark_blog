@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <router-view/>
+    <blog-topbar />
+    <router-view />
   </div>
 </template>
 
@@ -13,3 +14,14 @@
   color: #2c3e50;
 }
 </style>
+
+<script>
+import blogTopbar from './components/core/BlogTopbar'
+
+export default {
+  name: 'app',
+  components: {
+    blogTopbar
+  }
+}
+</script>
