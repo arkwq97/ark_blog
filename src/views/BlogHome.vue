@@ -1,15 +1,21 @@
 <template>
   <div id="blogHome">
-    <h1>Hi blogHome</h1>
+    <div id="homeContent">
+      <h1>Hi blogHome</h1>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scope>
 #blogHome {
-  position: absolute;
-  min-height: 120%;
+  position: relative;
+  min-height: 100%;
   width: 100%;
   background-color: rgb(251, 255, 0);
+}
+
+#homeContent {
+  position: absolute;
 }
 </style>
 

@@ -1,11 +1,15 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <blog-topbar />
     <router-view />
-  </div>
+    <blog-footer />
+  </v-app>
 </template>
 
 <style lang="scss">
+html,body{
+    height:100%;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,11 +21,13 @@
 
 <script>
 import blogTopbar from './components/core/BlogTopbar'
+import blogFooter from './components/core/BlogFooter'
 
 export default {
   name: 'app',
   components: {
-    blogTopbar
+    blogTopbar,
+    blogFooter
   }
 }
 </script>
