@@ -1,6 +1,7 @@
 <template>
   <v-footer
     id="blogFooter"
+    app
     dark
     padless
   >
@@ -14,15 +15,23 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-4"
-          dark
-          icon
+
+        <v-tooltip
+          top 
+          v-for="faIcon in icons"
+          :key="faIcon.link"
         >
-          <v-icon size="24px">{{ icon }}</v-icon>
-        </v-btn>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              class="mx-4"
+              dark
+              icon
+            >
+              <v-icon size="24px" v-on="on">{{ faIcon.link }}</v-icon>
+            </v-btn>
+          </template>
+          <span>{{ faIcon.name }}</span>
+        </v-tooltip>
       </v-card-title>
 
       <v-divider></v-divider>
@@ -44,11 +53,12 @@
   export default {
     data: () => ({
       icons: [
-        'fab fa-qq',
-        'fab fa-weixin',
-        'fab fa-facebook',
-        'fab fa-twitter',
-        'fab fa-instagram',
+        {link: 'fab fa-qq', name: 'QQ'},
+        {link: 'fab fa-weixin', name: 'WeChat'},
+        {link: 'fab fa-facebook', name: 'Facebook'},
+        {link: 'fab fa-twitter', name: 'Twitter'},
+        {link: 'fab fa-instagram', name: 'Instagram'},
+        {link: 'fab fa-github', name: 'GitHub'},
       ],
     }),
   }

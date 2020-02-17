@@ -16,17 +16,13 @@
 
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on">
+        <v-btn icon v-on="on" style="margin-right: 80px">
           <v-icon>fa-heart</v-icon>
         </v-btn>
       </template>
 
       <span>如果您喜欢这个blog，请点击给与鼓励</span>
     </v-tooltip>
-
-    <v-btn icon style="margin-left: 10px; margin-right: 80px">
-      <v-icon>fa-ellipsis-v</v-icon>
-    </v-btn>
 
     <a href="https://github.com/rookieK" target="_blank" class="github-corner" aria-label="View source on GitHub">
       <svg
