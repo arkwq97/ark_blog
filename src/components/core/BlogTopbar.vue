@@ -6,7 +6,7 @@
     elevate-on-scroll
     scroll-target
   >
-    <v-divider vertical inset></v-divider>
+    <v-divider style="margin-left: 5%" vertical inset></v-divider>
 
     <v-toolbar-title id="topbarTitle">Ark Blog</v-toolbar-title>
     
@@ -21,7 +21,7 @@
         </v-btn>
       </template>
 
-      <span>如果您喜欢这个blog，请点击给与鼓励</span>
+      <span>如果我的blog对您有帮助，请点击一下吧</span>
     </v-tooltip>
 
     <a href="https://github.com/rookieK" target="_blank" class="github-corner" aria-label="View source on GitHub">

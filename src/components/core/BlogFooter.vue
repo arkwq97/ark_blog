@@ -15,7 +15,6 @@
 
         <v-spacer></v-spacer>
 
-
         <v-tooltip
           top 
           v-for="faIcon in icons"
@@ -23,7 +22,7 @@
         >
           <template v-slot:activator="{ on }">
             <v-btn
-              class="mx-4"
+              class="mx-2"
               dark
               icon
             >
