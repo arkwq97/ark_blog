@@ -1,7 +1,6 @@
 <template>
   <div id="blogHome">
     <v-container class="homeContent" grid-list-xl>
-      
       <v-card id="homeBanner">
         <v-img
           height="400"
@@ -29,6 +28,7 @@
         </v-img>
       </v-card>
      
+     <floating-action-button/>
 
       <v-row>
         <article-card
@@ -66,18 +66,20 @@
 
 <script>
 import articleCard from '../components/blog-home/ArticleCard'
+import floatingActionButton from '../components/blog-home/FloatingActionButton'
 
 export default {
   name: 'home',
   data: () => ({
     banner: {
       title: 'ARK的博客',
-      content: '我想呼风唤雨',
+      content: '人们总说时间会改变一切，但事实上你得自己来',
     },
     page: 1,
   }),
   components: {
     articleCard,
+    floatingActionButton,
   }
 }
 </script>
