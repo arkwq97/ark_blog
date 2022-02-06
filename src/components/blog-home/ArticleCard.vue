@@ -1,34 +1,27 @@
 <template>
-  <v-col
-    xs="12"
-    md="4"
-  >
+  <v-col xs="12" md="4" @click="toArticle(articleInfo.id)">
     <v-hover v-slot:default="{ hover }">
-      <v-card
-        class="mx-auto"
-        dark
-        height="350"
-        href="#!"
-      >
-        <v-img
-          :src="require('@/assets/background/sky.jpg')"
-          height="100%"
-        >
+      <v-card class="mx-auto" dark height="350" href="#!">
+        <v-img :src="require('@/assets/background/sky.jpg')" height="100%">
           <v-expand-transition>
             <div
               v-if="hover"
-              class="d-flex transition-fast-in-fast-out darken-2 v-card--reveal display-3 white--text"
+              class="
+                d-flex
+                transition-fast-in-fast-out
+                darken-2
+                v-card--reveal
+                display-3
+                white--text
+              "
             >
-              <span style="font-size: 15px; line-height: 20px;">{{ article.introduction }}</span>
+              <span style="font-size: 15px; line-height: 20px">{{
+                articleInfo.introduction
+              }}</span>
             </div>
           </v-expand-transition>
 
-          <v-layout
-            fill-height
-            wrap
-            style="text-align: right!important;"
-            ma-0
-          >
+          <v-layout fill-height wrap style="text-align: right !important" ma-0>
             <v-flex xs12>
               <v-chip
                 label
@@ -37,19 +30,23 @@
                 text-color="white"
                 small
               >
-                {{ article.type }}
+                {{ articleInfo.type }}
               </v-chip>
 
-              <h3 class="title font-weight-bold mb-2">
-                {{ article.title }}
-              </h3>
+              <h2 class="title mb-2">
+                {{ articleInfo.title }}
+              </h2>
 
               <div class="caption">
-                {{ article.author }}
+                {{ articleInfo.author }}
               </div>
 
               <div class="caption">
-                {{ article.addTime }}
+                {{ articleInfo.addTime }}
+              </div>
+              <div class="caption">
+                <v-icon small left>far fa-eye</v-icon>
+                {{ articleInfo.viewCount }}
               </div>
             </v-flex>
           </v-layout>
@@ -65,7 +62,7 @@
   align-items: center;
   bottom: 0;
   justify-content: left;
-  opacity: .7;
+  opacity: 0.7;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -75,19 +72,14 @@
 
 <script>
 export default {
-  name: 'articleCard',
-  data: () => ({
-    article: {
-      id: 1,
-      type: 'vue',
-      title: 'vue入门',
-      author: 'Arkwq',
-      content: 'vuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevue',
-      introduction: '简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介',
-      addTime: '2016-1-23',
-      updateTime: '2016-1-23',
-      viewCount: 0,
-    }
-  })
-}
+  name: "articleCard",
+  props: {
+    articleInfo: Object,
+  },
+  methods: {
+    toArticle: function (articleId) {
+      this.$router.push(`/article/${articleId}`);
+    },
+  },
+};
 </script>

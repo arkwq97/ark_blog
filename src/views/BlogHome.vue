@@ -1,56 +1,15 @@
 <template>
-  <div id="blogHome">
+  <div class="blogHome">
     <v-container class="homeContent" grid-list-xl>
-      <v-card id="homeBanner">
-        <v-img
-          height="400"
-          src="../assets/background/ark.jpg"
-        >
-          <v-layout
-            fill-height
-            align-center
-            pa-3
-          >
-            <v-flex
-              xs12
-              md7
-              offset-md4
-            >
-              <h1 class="display-3 font-weight-light" style="color: white; margin: 15px">
-                {{banner.title}}
-              </h1>
-
-              <div class="subheading text-uppercase pl-4 mb-5" style="color: white; font-size: 20px">
-                {{banner.content}}
-              </div>
-            </v-flex>
-          </v-layout>
-        </v-img>
-      </v-card>
-     
-     <floating-action-button/>
-
-      <v-row>
-        <article-card
-          v-for = "i in 10"
-          :key = "i"
-        />
-      </v-row>
-
-      <v-container class="max-width">
-        <v-pagination
-          v-model="page"
-          dark
-          class="my-4"
-          :length="15"
-        ></v-pagination>
-      </v-container>
+      <home-banner :bannerInfo="blogInfo.bannerInfo" />
+      <floating-action-button />
+      <article-list :articleList="blogInfo.articleList" />
     </v-container>
   </div>
 </template>
 
 <style lang="scss" scope>
-#blogHome {
+.blogHome {
   min-height: 100%;
   width: 100%;
   padding-top: 84px;
@@ -65,21 +24,49 @@
 </style>
 
 <script>
-import articleCard from '../components/blog-home/ArticleCard'
-import floatingActionButton from '../components/blog-home/FloatingActionButton'
+import homeBanner from "../components/blog-home/HomeBanner";
+import articleList from "../components/blog-home/ArticleList";
+import floatingActionButton from "../components/core/FloatingActionButton";
 
 export default {
-  name: 'home',
+  name: "home",
   data: () => ({
-    banner: {
-      title: 'ARK的博客',
-      content: '人们总说时间会改变一切，但事实上你得自己来',
+    blogInfo: {
+      bannerInfo: {
+        title: "Ark's Blog",
+        content: "人们总说时间会改变一切，但事实上你得自己来",
+      },
+      articleList: [
+        {
+          id: 2,
+          type: "vue",
+          title: "vue入门",
+          author: "Arkwq",
+          introduction:
+            "简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介",
+          addTime: "1997-09-06",
+          viewCount: 0,
+        },
+        {
+          id: 3,
+          type: "vue",
+          title: "vue入门",
+          author: "Arkwq",
+          content:
+            "vuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevue",
+          introduction:
+            "简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介",
+          addTime: "1997-09-06",
+          updateTime: "1997-09-06",
+          viewCount: 0,
+        },
+      ],
     },
-    page: 1,
   }),
   components: {
-    articleCard,
+    homeBanner,
+    articleList,
     floatingActionButton,
-  }
-}
+  },
+};
 </script>
